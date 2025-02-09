@@ -2,6 +2,9 @@ version: '3.8'
 
 services:
   core-transfers-postgres:
+    build:
+      context: .
+      dockerfile: Dockerfile
     image: postgres_custom_ru:latest
     container_name: core-transfers-postgres
     ports:
@@ -15,4 +18,4 @@ services:
       timeout: 1s
       retries: 3
     volumes:
-      - ./postgres/init.sql:/docker-entrypoint-initdb.d/01.sql
+      - ./postgres/init.sql:/docker-entrypoint-initdb.d/init.sql

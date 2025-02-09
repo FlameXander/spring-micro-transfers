@@ -1,5 +1,5 @@
 server:
-  port: 8181
+  port: 9590
 spring:
   datasource:
     driver-class-name: org.postgresql.Driver
@@ -19,6 +19,6 @@ management:
         include: '*'
 integrations:
   limits:
-    url: http://localhost:8182/api/v1/limits
+    url: http://localhost:9591/api/v1/limits
     read-timeout: 30s
     write-timeout: 2s

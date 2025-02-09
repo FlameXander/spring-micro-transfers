@@ -15,7 +15,7 @@ public class TransferDto {
     @Schema(
             description = "Идентификатор перевода",
             example = "bde76ffa-f133-4c23-9bca-03618b2a94b2",
-            requiredMode = Schema.RequiredMode.REQUIRED,
+            required = true,
             minLength = 36,
             maxLength = 36
     )
@@ -24,7 +24,7 @@ public class TransferDto {
     @Schema(
             description = "Идентификатор клиента отправителя",
             example = "1234567890",
-            requiredMode = Schema.RequiredMode.REQUIRED,
+            required = true,
             maxLength = 10
     )
     private String clientId;
@@ -32,7 +32,7 @@ public class TransferDto {
     @Schema(
             description = "Идентификатор клиента получателя",
             example = "1234567890",
-            requiredMode = Schema.RequiredMode.REQUIRED,
+            required = true,
             maxLength = 10
     )
     private String targetClientId;
@@ -40,7 +40,7 @@ public class TransferDto {
     @Schema(
             description = "Номер счета отправителя",
             example = "123456789012",
-            requiredMode = Schema.RequiredMode.REQUIRED,
+            required = true,
             minLength = 12,
             maxLength = 12
     )
@@ -49,7 +49,7 @@ public class TransferDto {
     @Schema(
             description = "Номер счета получателя",
             example = "123456789012",
-            requiredMode = Schema.RequiredMode.REQUIRED,
+            required = true,
             minLength = 12,
             maxLength = 12
     )
@@ -58,7 +58,7 @@ public class TransferDto {
     @Schema(
             description = "Сообщение получателю",
             example = "На день рождения",
-            requiredMode = Schema.RequiredMode.REQUIRED,
+            required = true,
             maxLength = 255
     )
     private String message;
@@ -66,7 +66,7 @@ public class TransferDto {
     @Schema(
             description = "Сумма",
             example = "100.00",
-            requiredMode = Schema.RequiredMode.REQUIRED
+            required = true
     )
     private BigDecimal amount;
 }

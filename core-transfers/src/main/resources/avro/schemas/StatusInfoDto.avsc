@@ -1,0 +1,9 @@
+{
+  "type": "record",
+  "name": "StatusInfoDto",
+  "namespace": "ru.otus.java.pro.mt.avro",
+  "fields": [
+    { "name": "transferId", "type": "string" },
+    { "name": "status", "type": "string" }
+  ]
+}
