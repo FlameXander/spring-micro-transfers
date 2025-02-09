@@ -1,0 +1,1 @@
+docker exec -ti kafka /opt/bitnami/kafka/bin/kafka-topics.sh --create --topic mt.transfers.status.info --bootstrap-server kafka:9092

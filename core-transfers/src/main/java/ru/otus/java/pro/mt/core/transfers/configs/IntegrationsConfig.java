@@ -10,10 +10,6 @@ import ru.otus.java.pro.mt.core.transfers.configs.properties.LimitsIntegrationPr
 
 @Configuration
 public class IntegrationsConfig {
-    // @Bean
-    public RestTemplate commonRestTemplate() {
-        return new RestTemplate();
-    }
 
     @Bean
     @ConditionalOnMissingBean(RestTemplate.class)
@@ -21,10 +17,6 @@ public class IntegrationsConfig {
         return RestClient.builder()
                 .requestFactory(new HttpComponentsClientHttpRequestFactory())
                 .baseUrl(properties.getUrl())
-//                .defaultUriVariables(Map.of("variable", "foo"))
-//                .defaultHeader("My-Header", "Foo")
-//                .requestInterceptor(myCustomInterceptor)
-//                .requestInitializer(myCustomInitializer)
                 .build();
     }
 }

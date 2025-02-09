@@ -1,4 +1,5 @@
 rootProject.name = 'spring-micro-transfers'
 include 'core-transfers'
 include 'limits'
+include 'notifications'
 

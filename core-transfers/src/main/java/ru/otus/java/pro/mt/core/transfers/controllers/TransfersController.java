@@ -17,7 +17,6 @@ import ru.otus.java.pro.mt.core.transfers.exceptions_handling.ResourceNotFoundEx
 import ru.otus.java.pro.mt.core.transfers.services.TransfersService;
 
 import java.util.function.Function;
-import java.util.stream.Collectors;
 
 @RestController
 @RequiredArgsConstructor
@@ -46,7 +45,8 @@ public class TransfersController {
                 transfersService
                         .getAllTransfers(clientId)
                         .stream()
-                        .map(ENTITY_TO_DTO).collect(Collectors.toList())
+                        .map(ENTITY_TO_DTO)
+                        .toList()
         );
     }
 
@@ -80,7 +80,6 @@ public class TransfersController {
             @Parameter(description = "Идентификатор клиента", required = true, schema = @Schema(type = "string", maxLength = 10, example = "1234567890"))
             @RequestHeader(name = "client-id") String clientId,
 
-//            @io.swagger.v3.oas.annotations.parameters.RequestBody(description = "Данные для выполнения перевода", required = true)
             @Parameter(description = "Данные для выполнения перевода", required = true)
             @RequestBody ExecuteTransferDtoRq executeTransferDtoRq
     ) {

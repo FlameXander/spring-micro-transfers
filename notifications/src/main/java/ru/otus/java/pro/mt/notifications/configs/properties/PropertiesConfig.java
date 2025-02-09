@@ -1,12 +1,10 @@
-package ru.otus.java.pro.mt.core.transfers.configs.properties;
+package ru.otus.java.pro.mt.notifications.configs.properties;
 
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
 @EnableConfigurationProperties({
-        LimitsIntegrationProperties.class,
-        TransfersProperties.class,
         KafkaProperties.class
 })
 public class PropertiesConfig {

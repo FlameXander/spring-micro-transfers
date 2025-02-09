@@ -1,11 +1,11 @@
-package ru.otus.java.pro.mt.core.transfers;
+package ru.otus.java.pro.mt.notifications;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class CoreTransfersApplication {
+public class NotificationsApplication {
     public static void main(String[] args) {
-        SpringApplication.run(CoreTransfersApplication.class, args);
+        SpringApplication.run(NotificationsApplication.class, args);
     }
 }

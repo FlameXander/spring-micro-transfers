@@ -12,6 +12,12 @@ spring:
   jpa:
     show-sql: true
     open-in-view: false
+  kafka:
+    bootstrap-servers: localhost:9094
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.apache.kafka.common.serialization.StringSerializer
+      acks: all
 management:
   endpoints:
     web:
@@ -22,3 +28,6 @@ integrations:
     url: http://localhost:8182/api/v1/limits
     read-timeout: 30s
     write-timeout: 2s
+kafka:
+  topic-name: mt.transfers.status.info
+
