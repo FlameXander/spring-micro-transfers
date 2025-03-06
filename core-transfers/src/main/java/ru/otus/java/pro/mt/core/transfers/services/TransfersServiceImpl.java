@@ -6,6 +6,8 @@ import ru.otus.java.pro.mt.core.transfers.configs.properties.TransfersProperties
 import ru.otus.java.pro.mt.core.transfers.dtos.ExecuteTransferDtoRq;
 import ru.otus.java.pro.mt.core.transfers.entities.Transfer;
 import ru.otus.java.pro.mt.core.transfers.exceptions_handling.BusinessLogicException;
+import ru.otus.java.pro.mt.core.transfers.kafka.KafkaMessage;
+import ru.otus.java.pro.mt.core.transfers.kafka.KafkaSender;
 import ru.otus.java.pro.mt.core.transfers.repositories.TransfersRepository;
 import ru.otus.java.pro.mt.core.transfers.validators.TransferRequestValidator;
 
@@ -21,6 +23,7 @@ public class TransfersServiceImpl implements TransfersService {
     private final TransferRequestValidator transferRequestValidator;
     private final TransfersProperties transfersProperties;
     private final LimitsServiceImpl limitsService;
+    private final KafkaSender kafkaSender;
 
     @Override
     public Optional<Transfer> getTransferById(String id, String clientId) {
@@ -44,6 +47,7 @@ public class TransfersServiceImpl implements TransfersService {
         }
         Transfer transfer = new Transfer(UUID.randomUUID().toString(), "1", "2", "1", "2", "Demo", BigDecimal.ONE);
         save(transfer);
+        kafkaSender.send(new KafkaMessage(transfer.getId(), "EXECUTED"));
     }
 
     @Override
