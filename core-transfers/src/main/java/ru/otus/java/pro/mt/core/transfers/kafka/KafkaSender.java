@@ -15,7 +15,8 @@ public class KafkaSender {
         this.kafkaTemplate = kafkaTemplate;
     }
 
-    public void send(KafkaMessage message) {
+    public KafkaMessage send(KafkaMessage message) {
         kafkaTemplate.send(kafkaTopic, message);
+        return message;
     }
 }

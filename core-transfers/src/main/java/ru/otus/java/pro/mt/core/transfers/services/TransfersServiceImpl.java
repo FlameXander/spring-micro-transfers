@@ -47,7 +47,8 @@ public class TransfersServiceImpl implements TransfersService {
         }
         Transfer transfer = new Transfer(UUID.randomUUID().toString(), "1", "2", "1", "2", "Demo", BigDecimal.ONE);
         save(transfer);
-        kafkaSender.send(new KafkaMessage(transfer.getId(), "EXECUTED"));
+        KafkaMessage sendedKafkaMessage = kafkaSender.send(new KafkaMessage(transfer.getId(), "EXECUTED"));
+        System.out.println("sended.");
     }
 
     @Override
