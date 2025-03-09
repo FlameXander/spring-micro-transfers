@@ -6,16 +6,16 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class KafkaSender {
-    KafkaTemplate<String, KafkaMessage> kafkaTemplate;
+    KafkaTemplate<String, Object> kafkaTemplate;
 
     @Value(value = "${app.sending.topic.name}")
     String kafkaTopic;
 
-    public KafkaSender(KafkaTemplate<String, KafkaMessage> kafkaTemplate) {
+    public KafkaSender(KafkaTemplate<String, Object> kafkaTemplate) {
         this.kafkaTemplate = kafkaTemplate;
     }
 
-    public KafkaMessage send(KafkaMessage message) {
+    public TransactionMessage send(TransactionMessage message) {
         kafkaTemplate.send(kafkaTopic, message);
         return message;
     }
