@@ -12,6 +12,8 @@ spring:
   jpa:
     show-sql: true
     open-in-view: false
+  kafka:
+    bootstrap-servers: localhost:9092
 management:
   endpoints:
     web:
@@ -22,3 +24,8 @@ integrations:
     url: http://localhost:8182/api/v1/limits
     read-timeout: 30s
     write-timeout: 2s
+
+app:
+  sending:
+    topic:
+      name: default # topic where letters are sent
